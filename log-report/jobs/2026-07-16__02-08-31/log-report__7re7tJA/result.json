@@ -1,0 +1,93 @@
+{
+    "id": "0bccc3c5-b5c6-4292-ae1a-9424332d0344",
+    "task_name": "dynamo/log-report",
+    "trial_name": "log-report__7re7tJA",
+    "trial_uri": "file:///C:/Users/santo/Downloads/fix-task-broken/log-report/jobs/2026-07-16__02-08-31/log-report__7re7tJA",
+    "task_id": {
+        "path": "."
+    },
+    "source": null,
+    "task_checksum": "35c788fa79acabe7634c2427985ef7c31be2288d23ae1508f4d921201c4d2ef8",
+    "config": {
+        "task": {
+            "path": ".",
+            "git_url": null,
+            "git_commit_id": null,
+            "name": null,
+            "ref": null,
+            "overwrite": false,
+            "download_dir": null,
+            "source": null
+        },
+        "trial_name": "log-report__7re7tJA",
+        "trials_dir": "jobs\\2026-07-16__02-08-31",
+        "install_only": false,
+        "timeout_multiplier": 1.0,
+        "agent_timeout_multiplier": null,
+        "verifier_timeout_multiplier": null,
+        "agent_setup_timeout_multiplier": null,
+        "environment_build_timeout_multiplier": null,
+        "agent": {
+            "name": "oracle",
+            "import_path": null,
+            "model_name": null,
+            "n_concurrent": null,
+            "concurrency_group": null,
+            "skills": [],
+            "override_timeout_sec": null,
+            "override_setup_timeout_sec": null,
+            "max_timeout_sec": null,
+            "extra_allowed_hosts": [],
+            "kwargs": {},
+            "mcp_servers": []
+        },
+        "environment": {
+            "type": "docker",
+            "import_path": null,
+            "force_build": false,
+            "delete": true,
+            "cpu_enforcement_policy": "auto",
+            "memory_enforcement_policy": "auto",
+            "override_cpus": null,
+            "override_memory_mb": null,
+            "override_storage_mb": null,
+            "override_gpus": null,
+            "override_tpu": null,
+            "mounts": null,
+            "extra_docker_compose": [],
+            "kwargs": {},
+            "extra_allowed_hosts": []
+        },
+        "verifier": {
+            "override_timeout_sec": null,
+            "max_timeout_sec": null,
+            "disable": false
+        },
+        "artifacts": [],
+        "extra_instruction_paths": [],
+        "job_id": "15ba286b-6b2f-41bd-a636-bb276ba08cab"
+    },
+    "agent_info": {
+        "name": "oracle",
+        "version": "1.0.0",
+        "model_info": null
+    },
+    "agent_result": null,
+    "verifier_result": null,
+    "exception_info": {
+        "exception_type": "RuntimeError",
+        "exception_message": "Docker compose command failed for environment log-report. Command: docker compose --project-name log-report__7re7tja__env --project-directory C:\\Users\\santo\\Downloads\\fix-task-broken\\log-report\\environment -f C:\\Users\\santo\\AppData\\Local\\Temp\\tmpn46aejst\\log-report__7re7tJA__env-docker-compose-resources.json -f C:\\Users\\santo\\AppData\\Roaming\\uv\\tools\\harbor\\Lib\\site-packages\\harbor\\environments\\docker\\docker-compose-build.yaml -f C:\\Users\\santo\\AppData\\Local\\Temp\\tmpmhv3k5n7\\docker-compose-mounts.json build. Return code: 1. Stdout:  Image log-report__7re7tja__env-main Building \n#1 [internal] load local bake definitions\n#1 reading from stdin 617B done\n#1 DONE 0.0s\n\n#2 [internal] load build definition from Dockerfile\n#2 transferring dockerfile: 342B 0.0s done\n#2 DONE 0.1s\nDockerfile:2\n\n--------------------\n\n   1 |     # Pin the base image by digest for reproducibility.\n\n   2 | >>> FROM python:3.11-slim@sha256:3a3b9d7c4a3e5f6b7c8d9e0f1a2b3c4d5e6f7a8b9c0d1e2f3a4b5c6d7e8f9a0\n\n   3 |     \n\n   4 |     WORKDIR /app\n\n--------------------\n\nfailed to solve: failed to parse stage name \"python:3.11-slim@sha256:3a3b9d7c4a3e5f6b7c8d9e0f1a2b3c4d5e6f7a8b9c0d1e2f3a4b5c6d7e8f9a0\": invalid checksum digest length\n\n\n\nView build details: docker-desktop://dashboard/build/default/default/0v74ctvnwv3mdb71bd7luq1xo\n\n. Stderr: None. ",
+        "exception_traceback": "Traceback (most recent call last):\n  File \"C:\\Users\\santo\\AppData\\Roaming\\uv\\tools\\harbor\\Lib\\site-packages\\harbor\\trial\\trial.py\", line 350, in run\n    await self._prepare()\n  File \"C:\\Users\\santo\\AppData\\Roaming\\uv\\tools\\harbor\\Lib\\site-packages\\harbor\\trial\\trial.py\", line 379, in _prepare\n    await self._setup_agent_environment()\n  File \"C:\\Users\\santo\\AppData\\Roaming\\uv\\tools\\harbor\\Lib\\site-packages\\harbor\\trial\\trial.py\", line 1097, in _setup_agent_environment\n    await self._start_agent_environment()\n  File \"C:\\Users\\santo\\AppData\\Roaming\\uv\\tools\\harbor\\Lib\\site-packages\\harbor\\trial\\trial.py\", line 1103, in _start_agent_environment\n    await asyncio.wait_for(\n    ...<4 lines>...\n    )\n  File \"C:\\Users\\santo\\AppData\\Roaming\\uv\\python\\cpython-3.13.14-windows-x86_64-none\\Lib\\asyncio\\tasks.py\", line 507, in wait_for\n    return await fut\n           ^^^^^^^^^\n  File \"C:\\Users\\santo\\AppData\\Roaming\\uv\\tools\\harbor\\Lib\\site-packages\\harbor\\environments\\docker\\docker.py\", line 865, in start\n    await self._run_docker_compose_command([\"build\"])\n  File \"C:\\Users\\santo\\AppData\\Roaming\\uv\\tools\\harbor\\Lib\\site-packages\\harbor\\environments\\docker\\docker.py\", line 631, in _run_docker_compose_command\n    raise RuntimeError(\n    ...<5 lines>...\n    )\nRuntimeError: Docker compose command failed for environment log-report. Command: docker compose --project-name log-report__7re7tja__env --project-directory C:\\Users\\santo\\Downloads\\fix-task-broken\\log-report\\environment -f C:\\Users\\santo\\AppData\\Local\\Temp\\tmpn46aejst\\log-report__7re7tJA__env-docker-compose-resources.json -f C:\\Users\\santo\\AppData\\Roaming\\uv\\tools\\harbor\\Lib\\site-packages\\harbor\\environments\\docker\\docker-compose-build.yaml -f C:\\Users\\santo\\AppData\\Local\\Temp\\tmpmhv3k5n7\\docker-compose-mounts.json build. Return code: 1. Stdout:  Image log-report__7re7tja__env-main Building \n#1 [internal] load local bake definitions\n#1 reading from stdin 617B done\n#1 DONE 0.0s\n\n#2 [internal] load build definition from Dockerfile\n#2 transferring dockerfile: 342B 0.0s done\n#2 DONE 0.1s\nDockerfile:2\n\n--------------------\n\n   1 |     # Pin the base image by digest for reproducibility.\n\n   2 | >>> FROM python:3.11-slim@sha256:3a3b9d7c4a3e5f6b7c8d9e0f1a2b3c4d5e6f7a8b9c0d1e2f3a4b5c6d7e8f9a0\n\n   3 |     \n\n   4 |     WORKDIR /app\n\n--------------------\n\nfailed to solve: failed to parse stage name \"python:3.11-slim@sha256:3a3b9d7c4a3e5f6b7c8d9e0f1a2b3c4d5e6f7a8b9c0d1e2f3a4b5c6d7e8f9a0\": invalid checksum digest length\n\n\n\nView build details: docker-desktop://dashboard/build/default/default/0v74ctvnwv3mdb71bd7luq1xo\n\n. Stderr: None. \n",
+        "occurred_at": "2026-07-16T02:08:53.940794"
+    },
+    "started_at": "2026-07-15T20:38:38.492330Z",
+    "finished_at": "2026-07-15T20:38:54.982171Z",
+    "environment_setup": {
+        "started_at": "2026-07-15T20:38:39.515569Z",
+        "finished_at": "2026-07-15T20:38:53.807735Z"
+    },
+    "agent_setup": null,
+    "agent_execution": null,
+    "verifier": null,
+    "step_results": null
+}

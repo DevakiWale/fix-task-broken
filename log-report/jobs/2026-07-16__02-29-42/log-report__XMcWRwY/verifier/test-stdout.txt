@@ -1,0 +1,78 @@
+============================= test session starts ==============================
+platform linux -- Python 3.11.15, pytest-9.1.1, pluggy-1.6.0
+rootdir: /tests
+collected 3 items
+
+../tests/test_outputs.py FFF                                             [100%]
+
+=================================== FAILURES ===================================
+______________________________ test_report_exists ______________________________
+
+    def test_report_exists():
+        """Success Criterion 1: The report file /app/report.json exists."""
+>       assert REPORT_PATH.exists(), "report.json was not created"
+E       AssertionError: report.json was not created
+E       assert False
+E        +  where False = exists()
+E        +    where exists = PosixPath('/app/report.json').exists
+
+/tests/test_outputs.py:43: AssertionError
+______________________________ test_report_schema ______________________________
+
+    def test_report_schema():
+        """Success Criterion 2: The report contains valid JSON with exactly the required fields."""
+>       with REPORT_PATH.open() as f:
+             ^^^^^^^^^^^^^^^^^^
+
+/tests/test_outputs.py:48: 
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ 
+
+self = PosixPath('/app/report.json'), mode = 'r', buffering = -1
+encoding = 'locale', errors = None, newline = None
+
+    def open(self, mode='r', buffering=-1, encoding=None,
+             errors=None, newline=None):
+        """
+        Open the file pointed by this path and return a file object, as
+        the built-in open() function does.
+        """
+        if "b" not in mode:
+            encoding = io.text_encoding(encoding)
+>       return io.open(self, mode, buffering, encoding, errors, newline)
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+E       FileNotFoundError: [Errno 2] No such file or directory: '/app/report.json'
+
+/usr/local/lib/python3.11/pathlib.py:1044: FileNotFoundError
+______________________________ test_report_values ______________________________
+
+    def test_report_values():
+        """Success Criterion 3: The report values are correct according to the access log."""
+        expected = expected_report()
+    
+>       with REPORT_PATH.open() as f:
+             ^^^^^^^^^^^^^^^^^^
+
+/tests/test_outputs.py:65: 
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ 
+
+self = PosixPath('/app/report.json'), mode = 'r', buffering = -1
+encoding = 'locale', errors = None, newline = None
+
+    def open(self, mode='r', buffering=-1, encoding=None,
+             errors=None, newline=None):
+        """
+        Open the file pointed by this path and return a file object, as
+        the built-in open() function does.
+        """
+        if "b" not in mode:
+            encoding = io.text_encoding(encoding)
+>       return io.open(self, mode, buffering, encoding, errors, newline)
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+E       FileNotFoundError: [Errno 2] No such file or directory: '/app/report.json'
+
+/usr/local/lib/python3.11/pathlib.py:1044: FileNotFoundError
+=========================== short test summary info ============================
+FAILED ../tests/test_outputs.py::test_report_exists - AssertionError: report....
+FAILED ../tests/test_outputs.py::test_report_schema - FileNotFoundError: [Err...
+FAILED ../tests/test_outputs.py::test_report_values - FileNotFoundError: [Err...
+============================== 3 failed in 0.09s ===============================

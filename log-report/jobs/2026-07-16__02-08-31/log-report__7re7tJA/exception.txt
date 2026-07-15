@@ -1,0 +1,49 @@
+Traceback (most recent call last):
+  File "C:\Users\santo\AppData\Roaming\uv\tools\harbor\Lib\site-packages\harbor\trial\trial.py", line 350, in run
+    await self._prepare()
+  File "C:\Users\santo\AppData\Roaming\uv\tools\harbor\Lib\site-packages\harbor\trial\trial.py", line 379, in _prepare
+    await self._setup_agent_environment()
+  File "C:\Users\santo\AppData\Roaming\uv\tools\harbor\Lib\site-packages\harbor\trial\trial.py", line 1097, in _setup_agent_environment
+    await self._start_agent_environment()
+  File "C:\Users\santo\AppData\Roaming\uv\tools\harbor\Lib\site-packages\harbor\trial\trial.py", line 1103, in _start_agent_environment
+    await asyncio.wait_for(
+    ...<4 lines>...
+    )
+  File "C:\Users\santo\AppData\Roaming\uv\python\cpython-3.13.14-windows-x86_64-none\Lib\asyncio\tasks.py", line 507, in wait_for
+    return await fut
+           ^^^^^^^^^
+  File "C:\Users\santo\AppData\Roaming\uv\tools\harbor\Lib\site-packages\harbor\environments\docker\docker.py", line 865, in start
+    await self._run_docker_compose_command(["build"])
+  File "C:\Users\santo\AppData\Roaming\uv\tools\harbor\Lib\site-packages\harbor\environments\docker\docker.py", line 631, in _run_docker_compose_command
+    raise RuntimeError(
+    ...<5 lines>...
+    )
+RuntimeError: Docker compose command failed for environment log-report. Command: docker compose --project-name log-report__7re7tja__env --project-directory C:\Users\santo\Downloads\fix-task-broken\log-report\environment -f C:\Users\santo\AppData\Local\Temp\tmpn46aejst\log-report__7re7tJA__env-docker-compose-resources.json -f C:\Users\santo\AppData\Roaming\uv\tools\harbor\Lib\site-packages\harbor\environments\docker\docker-compose-build.yaml -f C:\Users\santo\AppData\Local\Temp\tmpmhv3k5n7\docker-compose-mounts.json build. Return code: 1. Stdout:  Image log-report__7re7tja__env-main Building 
+#1 [internal] load local bake definitions
+#1 reading from stdin 617B done
+#1 DONE 0.0s
+
+#2 [internal] load build definition from Dockerfile
+#2 transferring dockerfile: 342B 0.0s done
+#2 DONE 0.1s
+Dockerfile:2
+
+--------------------
+
+   1 |     # Pin the base image by digest for reproducibility.
+
+   2 | >>> FROM python:3.11-slim@sha256:3a3b9d7c4a3e5f6b7c8d9e0f1a2b3c4d5e6f7a8b9c0d1e2f3a4b5c6d7e8f9a0
+
+   3 |     
+
+   4 |     WORKDIR /app
+
+--------------------
+
+failed to solve: failed to parse stage name "python:3.11-slim@sha256:3a3b9d7c4a3e5f6b7c8d9e0f1a2b3c4d5e6f7a8b9c0d1e2f3a4b5c6d7e8f9a0": invalid checksum digest length
+
+
+
+View build details: docker-desktop://dashboard/build/default/default/0v74ctvnwv3mdb71bd7luq1xo
+
+. Stderr: None. 
